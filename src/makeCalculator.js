@@ -7,6 +7,9 @@ function makeCalculator() {
   const calculator = {
     result: 0,
     operate(operation, value) {
+      if (typeof operation !== 'function') {
+        throw new TypeError('Operation must be a function');
+      }
       operation.call(this, value);
 
       return this;
